@@ -1,0 +1,27 @@
+<% include ../partials/header%>
+
+<div class ="container">
+    <header class="jumbotron">
+        <div class="container">
+        <h1>BookClub</h1>
+        <p>join any book club below or start your own. let the conversation begin!</p>
+        <p>
+            <a class="btn btn-primary btn-large" href="/books/new">create a new book club</a>
+        </p>
+        </div>
+    </header>
+    
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% books.forEach(function(book){ %>
+       <div class="col-md-3 col-sm-6">
+            <div class="thumbnail" onclick="location.href='/books/<%= book._id %>'; ">
+                <div class="caption">
+                    <h4> <%=book.name%></h4>
+                </div>
+                    <img src="<%=book.image%>">
+                </div>
+            </div>
+       <% });%>
+    </div>
+</div>
+<% include ../partials/footer%>
