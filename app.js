@@ -16,9 +16,9 @@ var commentRoutes = require("./routes/comments"),
     bookRoutes = require("./routes/books"),
     indexRoute = require("./routes/index");
 
-mongoose.connect(process.env.DATABASEURL);
+var url = process.env.DATABASEURL || "mongodb://localhost/book_share_v2";
+mongoose.connect(url);
 //mongoose.connect("mongodb://jonkcoe:Morris420!@ds163053.mlab.com:63053/bookclub_v1");
-
 
 app.use(bodyParcer.urlencoded({extended:true}));
 app.set("view engine", "ejs");
